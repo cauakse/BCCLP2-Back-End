@@ -38,7 +38,7 @@ export default class ProdutoDAO {
         if (produto instanceof Produto) {
             const conexao = await conectar();
             const sql = `INSERT INTO produto(prod_descricao,prod_precoCusto,prod_precoVenda,prod_qtdEstoque,prod_urlImagem,prod_dataValidade, fk_codigo_cat)
-                values(?,?,?,?,?,str_to_date(?,'%d/%m/%Y'),?)
+                values(?,?,?,?,?,STR_TO_DATE(?,'%Y-%m-%d'),?)
             `;
             let parametros = [
                 produto.descricao,
