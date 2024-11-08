@@ -4,7 +4,7 @@ import CategoriaCtrl from "../Controle/categoriaCtrl.js";
 const catCtrl = new CategoriaCtrl();
 const rotaCatInProd = Router();
 
-rotaCatInProd.get("/",catCtrl.consultar);
+rotaCatInProd.get("/",catCtrl.consultarInProduto);
 
 
 export default rotaCatInProd;
