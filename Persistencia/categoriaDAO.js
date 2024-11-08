@@ -85,10 +85,8 @@ export default class CategoriaDAO {
     }
 
     async consultarInProduto() {
-        let sql =`
-        SELECT DISTINCT c.* 
-        FROM categoria c 
-        INNER JOIN produto p ON c.codigo = p.fk_codigo_cat;`
+        let sql =
+        `SELECT * FROM categoria LIMIT 1;`
         const conexao = await conectar();
         const [registros, campos] = await conexao.query(sql,[]);
         let listaCategoria=[]
