@@ -186,4 +186,32 @@ export default class CategoriaCtrl{
         }
     }
 
+    consultarInProduto(requisicao,resposta){
+        resposta.type("application/json");
+        if(requisicao.method=="GET"){
+            const categoria = new Categoria();
+
+            categoria.consultarInProduto().then((lista)=>{
+                resposta.status(200).json(lista);
+            })
+            .catch((e)=>{
+                resposta.status(500).json(
+                    {
+                        "status":false,
+                        "mensagem":"Erro ao consultar categorias" + erro   
+                    }
+                );
+            });
+        }
+        else
+        {
+            resposta.status(400).json(
+                {
+                    "status":false,
+                    "mensagem":"Requisição inválida! Consulte a documentação da API."
+                }
+            );
+        }
+    }
+
 }

@@ -84,4 +84,17 @@ export default class CategoriaDAO {
 
     }
 
+    async consultarInProduto() {
+        let sql = "SELECT * FROM categoria c WHERE c.codigo IN (SELECT fk_codigo_cat FROM produto)"
+        const conexao = await conectar();
+        const [registro, campos] = await conexao.query(sql);
+        let listaCategoria=[]
+        for(const registro of registros){
+            const categoria = new Categoria(registro['codigo'],registro['descricao']);
+            listaCategoria.push(categoria);
+        }
+
+        return listaCategoria;
+    }
+
 }
