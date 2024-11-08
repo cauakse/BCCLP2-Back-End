@@ -90,7 +90,7 @@ export default class CategoriaDAO {
         FROM categoria c 
         INNER JOIN produto p ON c.codigo = p.fk_codigo_cat;`
         const conexao = await conectar();
-        const [registros, campos] = await conexao.query(sql);
+        const [registros, campos] = await conexao.query(sql,[]);
         let listaCategoria=[]
         for(const registro of registros){
             const categoria = new Categoria(registro['codigo'],registro['descricao']);
