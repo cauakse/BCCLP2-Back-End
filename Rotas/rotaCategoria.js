@@ -13,7 +13,6 @@ rotaCategoria.patch("/:codigo", catCtrl.editar);
 rotaCategoria.delete("/:codigo", catCtrl.excluir);
 rotaCategoria.get("/:codigo", catCtrl.consultar);
 rotaCategoria.get("/",catCtrl.consultar);
-rotaCategoria.get("/inProduto",catCtrl.consultarInProduto);
 
 export default rotaCategoria;
 
